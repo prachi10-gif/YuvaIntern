@@ -1,0 +1,6 @@
+date,city,current_temp_c,humidity_pct,wind_kmh,aqi,condition,source
+2026-10-06,Bhopal,32,36,3.14,132,Clear,Hindustan Times Weather
+2026-10-06,Delhi,31,32,3.75,160,Clear,Hindustan Times Weather
+2026-10-06,Mumbai,28,71,6.27,146,Scattered clouds,Hindustan Times Weather
+2026-10-06,Bengaluru,26,67,4.65,98,Few clouds,Hindustan Times Weather
+2026-10-06,Kolkata,33,60,3.38,162,Overcast clouds,Hindustan Times Weather

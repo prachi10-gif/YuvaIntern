@@ -1,155 +1,49 @@
-# Statistical Analysis & Predictive Modeling Using R
+# YuvaIntern – Final Week: Live Weather Analytics
 
-## 📌 Project Overview
+## Project
+**Integrated Data Cleaning, Visualization, Statistical Analysis and Predictive Modeling Using R**
 
-This project was completed as part of a **Data Analytics / R Statistical Modeling internship task**. The objective is to perform statistical analysis, hypothesis testing, and predictive modeling using the publicly available **Iris dataset**.
+### Objective
+This final-week project consolidates the internship workflow into one end-to-end analysis using fresh weather information for five Indian cities: Bhopal, Delhi, Mumbai, Bengaluru and Kolkata.
 
-The project demonstrates a complete data science workflow, starting from exploratory analysis and statistical testing to model development, cross-validation, performance evaluation, and interpretation.
+### Data freshness
+The live snapshot and forecast panel were captured on **6 October 2026** from current weather pages. The repository contains the exact CSV files used in the report.
 
-## 🎯 Objectives
+### Workflow
+1. Live data collection
+2. Data cleaning and duplicate/missing-value checks
+3. Exploratory visualization
+4. Pearson correlation
+5. One-way ANOVA
+6. Time-based train/test split
+7. Multiple linear regression
+8. MAE, RMSE and R² evaluation
+9. Residual diagnostics
+10. Business/public-planning interpretation
 
-- Explore and understand the dataset
-- Perform descriptive and exploratory statistical analysis
-- Conduct hypothesis testing
-- Analyze correlations and distribution assumptions
-- Build a predictive classification model
-- Apply train-test splitting and cross-validation
-- Evaluate model performance using appropriate metrics
-- Perform model diagnostics
-- Identify potential improvements
+### Model
+The model predicts daily maximum temperature using:
+- Minimum temperature
+- City
 
-## 📊 Dataset
+A time-based holdout (last two forecast observations per city) was used instead of a random split to reduce temporal leakage.
 
-The **Iris dataset** contains 150 observations belonging to three flower species:
+### Results
+- Holdout MAE: **1.10 °C**
+- Holdout RMSE: **1.33 °C**
+- Holdout R²: **0.711**
+- Minimum vs maximum temperature correlation: **r = 0.447**
+- City-level maximum-temperature ANOVA: **p = 5.72e-16**
 
-- Setosa
-- Versicolor
-- Virginica
+### Repository files
+- `YuvaIntern_Final_Week_Report.docx` – final report
+- `final_week_weather_analysis.R` – R analysis code
+- `live_weather_current_snapshot.csv` – live current conditions
+- `live_weather_forecast_panel.csv` – forecast panel
+- `figures/` – charts and R code/output snapshots
 
-### Features
+## Data Sources
+- Hindustan Times Weather city pages – current conditions, AQI and forecast values
+- Open-Meteo documentation – API reference for reproducible live/current weather workflows
 
-| Feature | Description |
-|---|---|
-| Sepal.Length | Sepal length in cm |
-| Sepal.Width | Sepal width in cm |
-| Petal.Length | Petal length in cm |
-| Petal.Width | Petal width in cm |
-| Species | Target variable |
-
-## 🛠️ Technologies Used
-
-- **R**
-- ggplot2
-- caret
-- nnet
-- Statistical hypothesis testing
-- Multinomial Logistic Regression
-- Cross-validation
-
-## 🔬 Statistical Analysis
-
-The following statistical techniques were applied:
-
-- Pearson correlation test
-- Shapiro-Wilk normality test
-- One-way ANOVA
-- Descriptive statistics
-- Exploratory data visualization
-
-The analysis identified strong relationships between flower measurements and significant differences in petal length across species.
-
-## 🤖 Predictive Modeling
-
-A **Multinomial Logistic Regression** model was developed to predict flower species.
-
-### Model Workflow
-
-```text
-Dataset
-   ↓
-Data Exploration
-   ↓
-Statistical Testing
-   ↓
-80/20 Train-Test Split
-   ↓
-Data Standardization
-   ↓
-Multinomial Logistic Regression
-   ↓
-5-Fold Cross-Validation
-   ↓
-Model Evaluation
-   ↓
-Diagnostics & Interpretation
-```
-
-## 📈 Model Performance
-
-| Metric | Result |
-|---|---:|
-| Test Accuracy | **93.3%** |
-| 5-Fold CV Accuracy | **95.3%** |
-
-A **confusion matrix**, precision, recall, and F1-score were used to evaluate classification performance.
-
-## 📊 Visualizations
-
-The project includes:
-
-1. Petal Length vs Petal Width scatter plot
-2. Correlation matrix
-3. Confusion matrix
-4. Cross-validation accuracy chart
-5. Classification confidence diagnostic
-6. R code screenshot
-7. R output screenshot
-
-## 📁 Repository Structure
-
-```text
-YuvaIntern/
-│
-├── Prachi_Gupta_R_Statistical_Analysis_Predictive_Modeling.docx
-├── iris_predictive_model.R
-├── iris_predictive_model_dataset.csv
-│
-├── 01_iris_scatter.png
-├── 02_correlation.png
-├── 03_confusion_matrix.png
-├── 04_cv_scores.png
-├── 05_confidence_diagnostic.png
-├── 06_R_code_screenshot.png
-└── 07_R_output_screenshot.png
-```
-
-## 💡 Key Findings
-
-- Petal measurements provide strong separation between Iris species.
-- Sepal length and petal length show a strong positive correlation.
-- Petal length differs significantly across the three species.
-- The classification model achieved high predictive accuracy.
-- Cross-validation confirmed that the model performs consistently across different folds.
-
-## 🚀 Future Improvements
-
-The project can be further improved by:
-
-- Comparing Random Forest, SVM, and Decision Tree models
-- Performing feature selection
-- Using repeated cross-validation
-- Evaluating probability calibration
-- Testing the model on an independent dataset
-- Applying hyperparameter tuning
-
-## 👩‍💻 Author
-
-**Prachi Gupta**
-
-B.Tech – Information Technology  
-Oriental Institute of Science and Technology  
-RGPV University
-
----
-
-⭐ This project demonstrates the practical application of **statistics, machine learning, R programming, and data visualization** in a complete predictive analytics workflow.
+**Note:** Forecast values can change as providers update their models. Re-running the data-collection step on a later date will produce a different snapshot.
